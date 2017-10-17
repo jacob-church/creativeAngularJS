@@ -1,1 +1,40 @@
+<!DOCTYPE html>
+<html>
 
+<head>
+  <title>Tic-Tac-Toe but BETTER</title>
+  <link rel="stylesheet" type="text/css" href="styles.css"></link>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.19/angular.min.js"></script>
+  <script src="tictactoe.js"></script>
+</head>
+
+<body ng-app="tictactoe" ng-controller="ticTacToeCtrl">
+  <audio autoplay loop src="sounds/pokemon.mp3" id="sound"></audio>
+  <script>
+    var audio = $('#sound')[0];
+    audio.volume = 0.75;
+  </script>
+  <h1>Tic-Tac-Toe</h1>
+  <h3>{{currPlayer}}, it's your turn!</h3>
+  <div class="container">
+    <div class="row" ng-repeat="cell in board[0]" >
+      <button class="cell" ng-click="turn(cell)">
+        {{cell.value}}
+      </button>
+    </div><br>
+    <div class="row" ng-repeat="cell in board[1]">
+      <button class="cell" ng-click="turn(cell)">
+        {{cell.value}}
+      </button>
+    </div><br>
+    <div class="row" ng-repeat="cell in board[2]">
+      <button class="cell" ng-click="turn(cell)">
+        {{cell.value}}
+      </button>
+    </div><br>
+  </div>
+  <h3>(Turn on your sound.)</h3>
+
+</body>
