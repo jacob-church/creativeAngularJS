@@ -25,7 +25,6 @@ angular.module('tictactoe', [])
     	if (cell.value == ' ' || cell.value == '-') {
         $scope.playPunchSound();
       	cell.value = $scope.currPlayer;
-        $scope.currPlayer = $scope.currPlayer == 'X' ? 'O' : 'X'; // swap turns;
         if($scope.checkForWin()) {
           $("#sound")[0].pause();
           setTimeout(function(){
@@ -42,6 +41,7 @@ angular.module('tictactoe', [])
           }, 500);
           $scope.playFailSound();
         }
+        $scope.currPlayer = $scope.currPlayer == 'X' ? 'O' : 'X'; // swap turns;
       }
     };
     $scope.checkForWin = function() {
