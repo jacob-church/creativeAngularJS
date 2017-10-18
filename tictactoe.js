@@ -25,10 +25,11 @@ angular.module('tictactoe', [])
     	if (cell.value == ' ' || cell.value == '-') {
         $scope.playPunchSound();
       	cell.value = $scope.currPlayer;
+        var player = $scope.currPlayer;
         if($scope.checkForWin()) {
           $("#sound")[0].pause();
           setTimeout(function(){
-            if(!alert("Player " + $scope.currPlayer + " wins!")) window.location.reload();
+            if(!alert("Player " + player + " wins!")) window.location.reload();
             $scope.resetBoard();
           }, 500);
           $scope.playWinSound();
